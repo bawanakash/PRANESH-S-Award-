@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>PRANESH | The Indian Technoblade — Supreme Homework Leader</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Teko:wght@500;600;700&family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cinzel: ['"Cinzel"', 'serif'],
+            decorative: ['"Cinzel Decorative"', 'serif'],
+            teko: ['"Teko"', 'sans-serif'],
+            pixel: ['"VT323"', 'monospace'],
+            sans: ['"Montserrat"', 'sans-serif']
+          },
+          colors: {
+            saffron: '#FF9933',
+            blood: '#C41E3A',
+            obsidian: '#07060A',
+            nether: '#14070a',
+            gold: {
+              300: '#FFE5A0',
+              400: '#FFD700',
+              500: '#D4AF37',
+              600: '#AA771C'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold-primary: #FFD700;
+      --saffron: #FF9933;
+      --blood: #C41E3A;
+      --obsidian: #07060A;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--obsidian);
+      color: #FFF2D1;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      touch-action: manipulation;
+    }
+
+    /* Screen shake feedback */
+    .screen-shake {
+      animation: phoneShake 0.38s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    @keyframes phoneShake {
+      10%, 90% { transform: translate3d(-3px, 2px, 0); }
+      20%, 80% { transform: translate3d(4px, -3px, 0); }
+      30%, 50%, 70% { transform: translate3d(-5px, 3px, 0); }
+      40%, 60% { transform: translate3d(4px, -2px, 0); }
+    }
+
+    /* 3D Mobile Touch Tilt Card */
+    .card-royal-glass {
+      background: linear-gradient(180deg, rgba(28, 14, 18, 0.94) 0%, rgba(13, 9, 16, 0.97) 50%, rgba(20, 8, 6, 0.96) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 215, 0, 0.45);
+      box-shadow: 
+        0 18px 45px rgba(0, 0, 0, 0.95),
+        0 0 35px rgba(255, 153, 51, 0.28),
+        0 0 20px rgba(196, 30, 58, 0.35),
+        inset 0 0 25px rgba(255, 215, 0, 0.1);
+      transition: transform 0.12s ease-out, box-shadow 0.2s ease;
+      will-change: transform;
+    }
+
+    /* Specular light sheen layer */
+    .foil-sheen {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--touch-x, 50%) var(--touch-y, 50%), rgba(255, 245, 190, 0.25) 0%, transparent 60%);
+      mix-blend-mode: overlay;
+      border-radius: inherit;
+    }
+
+    /* 24K Gold foil text animation */
+    .gold-foil-text {
+      background: linear-gradient(105deg, #a56f14 0%, #FFF8D6 22%, #FF9933 45%, #FFD700 70%, #9e6914 100%);
+      background-size: 260% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerGold 4s linear infinite;
+      filter: drop-shadow(0 0 18px rgba(255, 153, 51, 0.5));
+    }
+    @keyframes shimmerGold {
+      to { background-position: 260% center; }
+    }
+
+    /* Netherite glint */
+    .enchanted-glint {
+      position: relative;
+      overflow: hidden;
+    }
+    .enchanted-glint::after {
+      content: "";
+      position: absolute;
+      inset: -100%;
+      background: linear-gradient(
+        120deg,
+        transparent 38%,
+        rgba(168, 85, 247, 0.4) 48%,
+        rgba(232, 121, 249, 0.75) 50%,
+        rgba(168, 85, 247, 0.4) 52%,
+        transparent 62%
+      );
+      transform: rotate(30deg);
+      animation: glintMove 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes glintMove {
+      0% { transform: translateY(-120%) rotate(30deg); }
+      55%, 100% { transform: translateY(120%) rotate(30deg); }
+    }
+
+    /* Minecraft Boss Bar */
+    .boss-bar-fill {
+      background: linear-gradient(90deg, #9333ea, #d946ef, #f43f5e, #eab308);
+      background-size: 200% 100%;
+      animation: bossPulse 2.8s linear infinite;
+    }
+    @keyframes bossPulse {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    /* Fullscreen Totem Overlay */
+    #totemOverlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle, rgba(234, 179, 8, 0.45) 0%, rgba(5, 4, 8, 0.94) 75%);
+      z-index: 9998;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .totem-active { opacity: 1 !important; }
+    .totem-zoom {
+      animation: totemResurrect 1.7s cubic-bezier(0.17, 0.89, 0.32, 1.25) forwards;
+    }
+    @keyframes totemResurrect {
+      0% { transform: scale(0.1) rotate(-15deg); opacity: 0; filter: brightness(3); }
+      25% { transform: scale(1.25) rotate(3deg); opacity: 1; filter: brightness(1.8); }
+      70% { transform: scale(1.05) rotate(-2deg); opacity: 1; filter: drop-shadow(0 0 45px #eab308); }
+      100% { transform: scale(0.7) translateY(-50px); opacity: 0; }
+    }
+
+    /* Fullscreen Slash Flash */
+    #swordSlashOverlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      background: linear-gradient(135deg, transparent 46%, #FFFFFF 49%, #FFD700 50%, #FF334B 52%, transparent 55%);
+    }
+    .slash-active {
+      animation: slashWipe 0.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    }
+    @keyframes slashWipe {
+      0% { transform: scale(0.6) rotate(-12deg); opacity: 1; filter: brightness(2.6); }
+      100% { transform: scale(1.4) rotate(0deg); opacity: 0; }
+    }
+
+    /* Wax Seal Unfold */
+    .decree-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+    .decree-open .decree-content {
+      max-height: 480px;
+      opacity: 1;
+    }
+
+    /* Potato Button Press Reaction */
+    .potato-tap {
+      transition: transform 0.08s ease, filter 0.08s ease;
+    }
+    .potato-tap:active {
+      transform: scale(0.88) rotate(-6deg);
+      filter: brightness(1.3);
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-track { background: #07060a; }
+    ::-webkit-scrollbar-thumb { background: #5c3b12; border-radius: 4px; }
+
+    .mc-chat-row {
+      animation: chatSlide 0.2s ease-out both;
+    }
+    @keyframes chatSlide {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Jewel sparkle animation */
+    .jewel-pulse {
+      animation: jewelGlow 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes jewelGlow {
+      from { filter: drop-shadow(0 0 2px #fff); }
+      to { filter: drop-shadow(0 0 10px #facc15) brightness(1.3); }
+    }
+  </style>
+</head>
+
+<body class="selection:bg-amber-600/40 selection:text-amber-200 relative flex flex-col justify-between items-center px-3 pt-[calc(var(--safe-top)+8px)] pb-[calc(var(--safe-bottom)+20px)] min-h-screen">
+
+  <!-- Fullscreen FX Overlays -->
+  <div id="swordSlashOverlay"></div>
+  <canvas id="emberCanvas" class="fixed inset-0 pointer-events-none z-[1]"></canvas>
+  <canvas id="fireworkCanvas" class="fixed inset-0 pointer-events-none z-[60]"></canvas>
+
+  <!-- TOTEM POPUP MODAL -->
+  <div id="totemOverlay">
+    <div id="totemGraphic" class="flex flex-col items-center px-4">
+      <svg class="w-44 h-44 drop-shadow-[0_0_45px_#facc15]" viewBox="0 0 100 100" fill="none">
+        <rect x="42" y="24" width="16" height="24" rx="2" fill="#EAB308" stroke="#CA8A04" stroke-width="2"/>
+        <circle cx="50" cy="18" r="14" fill="#FACC15" stroke="#CA8A04" stroke-width="2"/>
+        <path d="M30 18L18 8V28L30 36Z" fill="#CA8A04"/>
+        <path d="M70 18L82 8V28L70 36Z" fill="#CA8A04"/>
+        <rect x="44" y="14" width="3.5" height="4.5" rx="1" fill="#10B981"/>
+        <rect x="52.5" y="14" width="3.5" height="4.5" rx="1" fill="#10B981"/>
+        <rect x="48" y="19" width="4" height="6" rx="1" fill="#A16207"/>
+        <path d="M36 44H64L60 76H40L36 44Z" fill="#FACC15" stroke="#CA8A04" stroke-width="2"/>
+        <rect x="45" y="52" width="10" height="18" rx="2" fill="#A16207"/>
+      </svg>
+      <div class="mt-3 font-cinzel text-2xl font-black text-amber-300 tracking-[0.2em] drop-shadow-[0_0_20px_#eab308] uppercase text-center">
+        ✦ TOTEM ACTIVATED ✦
+      </div>
+      <p class="font-teko text-xl tracking-widest text-emerald-400 mt-0.5 uppercase">TECHNOBLADE NEVER DIES</p>
+      <p class="text-[11px] text-amber-200/90 font-mono mt-1">Homework Deadlines Abolished!</p>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK ACTION BAR (STICKY TOP FOR MOBILE) -->
+  <header class="w-full max-w-md sticky top-1 z-40 mb-3 px-1">
+    <!-- Minecraft Boss Bar Card -->
+    <div class="p-2 sm:p-2.5 rounded-xl bg-black/85 backdrop-blur-md border border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.35)]">
+      <div class="flex items-center justify-between text-[11px] sm:text-xs font-teko tracking-[0.18em] uppercase text-purple-300 font-bold mb-1">
+        <span class="flex items-center gap-1.5 truncate pr-2">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-ping shrink-0"></span>
+          <span class="truncate">BOSS: PRANESH [HOMEWORK LEADER]</span>
+        </span>
+        <span id="bossHealthPercent" class="text-amber-300 font-pixel text-sm shrink-0">HP: 100/100</span>
+      </div>
+      <div class="w-full h-2.5 sm:h-3 bg-neutral-950 rounded border border-purple-400/50 p-[1.5px] overflow-hidden flex">
+        <div id="bossBarFill" class="h-full boss-bar-fill rounded-sm transition-all duration-300 w-full"></div>
+      </div>
+    </div>
+
+    <!-- Micro Action Toggles Row -->
+    <div class="flex items-center justify-between mt-2 px-1">
+      <div class="flex items-center space-x-1.5 bg-black/70 px-2.5 py-1 rounded-full border border-amber-500/30 text-[10px] font-pixel text-amber-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>SERVER: CLASS_ROOM // 100%_PRANESH</span>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <!-- Haptics Toggle -->
+        <button id="hapticBtn" onclick="toggleHaptics()" class="px-2 py-1 rounded-full border border-amber-400/40 bg-black/75 text-amber-300 text-[10px] font-teko tracking-wider uppercase active:scale-95 transition-all">
+          <span id="hapticIcon">📳</span> ON
+        </button>
+        <!-- BGM Toggle -->
+        <button id="bgmBtn" onclick="toggleBGM()" class="px-2.5 py-1 rounded-full border border-purple-500/40 bg-purple-950/50 text-purple-200 text-[10px] font-teko tracking-wider uppercase active:scale-95 transition-all flex items-center gap-1">
+          <span id="bgmIcon">🎵</span> <span id="bgmLabel">BGM</span>
+        </button>
+        <!-- SFX Toggle -->
+        <button id="sfxBtn" onclick="toggleSFX()" class="px-2.5 py-1 rounded-full border border-amber-400/50 bg-amber-950/40 text-amber-300 text-[10px] font-teko tracking-wider uppercase active:scale-95 transition-all flex items-center gap-1">
+          <span id="sfxIcon">🔊</span> <span id="sfxLabel">SFX</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ROYAL CARD (COMPACT MOBILE FIRST ARCHITECTURE) -->
+  <main class="w-full max-w-md z-20 flex flex-col items-center">
+    
+    <div id="cardTouchArea" class="w-full">
+      <div id="heroCard" class="card-royal-glass rounded-2xl p-4 sm:p-6 text-center relative overflow-hidden">
+        
+        <div class="foil-sheen"></div>
+
+        <!-- Corner Ornaments -->
+        <span class="absolute top-2 left-3 text-amber-400/70 font-cinzel text-xs select-none">᚛ ✦ ᚜</span>
+        <span class="absolute top-2 right-3 text-amber-400/70 font-cinzel text-xs select-none">᚛ ✦ ᚜</span>
+
+        <!-- Official Poll Mandate Pill -->
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full border border-amber-400/60 bg-gradient-to-r from-red-950/80 via-amber-950/60 to-red-950/80 mb-3 backdrop-blur-md shadow-md">
+          <span class="text-amber-400 text-xs">👑</span>
+          <span class="font-teko text-xs sm:text-sm tracking-[0.15em] text-amber-200 uppercase font-bold">
+            POLL CLOSED • 100% UNCONTESTED VICTORY
+          </span>
+          <span class="text-amber-400 text-xs">⚔️</span>
+        </div>
+
+        <!-- Crown Crest with Diamond & Ruby Gems -->
+        <div class="flex justify-center mb-2" onclick="triggerTotemCeremony(event)">
+          <div class="relative cursor-pointer group active:scale-95 transition-transform" title="Tap to summon Totem of Undying!">
+            <svg class="w-24 h-24 sm:w-28 sm:h-28 mx-auto drop-shadow-[0_0_20px_#ff9933]" viewBox="0 0 120 120" fill="none">
+              <defs>
+                <linearGradient id="goldHelm" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFF9E0"/>
+                  <stop offset="35%" stop-color="#FFD700"/>
+                  <stop offset="75%" stop-color="#B8860B"/>
+                  <stop offset="100%" stop-color="#6B4905"/>
+                </linearGradient>
+                <linearGradient id="capeVelvet" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FF2E55"/>
+                  <stop offset="60%" stop-color="#9E0C25"/>
+                  <stop offset="100%" stop-color="#4F000E"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Technoblade Cape & Fur Collar -->
+              <path d="M22 88C22 74 38 70 60 70C82 70 98 74 98 88L104 114H16L22 88Z" fill="url(#capeVelvet)"/>
+              <path d="M25 80C35 74 50 72 60 72C70 72 85 74 95 80C97 86 92 92 85 92C75 92 68 85 60 85C52 85 45 92 35 92C28 92 23 86 25 80Z" fill="#F8FAFC"/>
+              <circle cx="40" cy="85" r="1.5" fill="#1E293B"/>
+              <circle cx="60" cy="80" r="1.5" fill="#1E293B"/>
+              <circle cx="80" cy="85" r="1.5" fill="#1E293B"/>
+
+              <!-- Crossed Netherite Swords -->
+              <path d="M30 40L90 100M26 44L34 36" stroke="url(#goldHelm)" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M90 40L30 100M94 44L86 36" stroke="url(#goldHelm)" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- Technoblade Imperial Crown -->
+              <path d="M32 54L38 28L49 42L60 18L71 42L82 28L88 54H32Z" fill="url(#goldHelm)" stroke="#66460C" stroke-width="1.2"/>
+              <rect x="32" y="52" width="56" height="8" rx="2" fill="url(#goldHelm)"/>
+              
+              <!-- Jewels -->
+              <circle class="jewel-pulse" cx="60" cy="34" r="3.4" fill="#22C55E"/>
+              <circle class="jewel-pulse" cx="45" cy="46" r="3" fill="#EF4444"/>
+              <circle class="jewel-pulse" cx="75" cy="46" r="3" fill="#3B82F6"/>
+              <circle cx="60" cy="56" r="2.2" fill="#EF4444"/>
+
+              <!-- Pig Snout Homage -->
+              <rect x="50" y="65" width="20" height="12" rx="3" fill="#FFB6C1" stroke="#AA771C" stroke-width="1.2"/>
+              <rect x="54" y="69" width="3" height="4" rx="1" fill="#881337"/>
+              <rect x="63" y="69" width="3" height="4" rx="1" fill="#881337"/>
+            </svg>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-black/75 border border-amber-400/50 text-[9px] font-teko tracking-[0.2em] text-amber-300 uppercase mt-1">
+              ⚡ TAP CROWN FOR TOTEM REVIVAL ⚡
+            </span>
+          </div>
+        </div>
+
+        <!-- Monarch Name with Clamp Sizing -->
+        <h1 class="text-[clamp(2.8rem,13vw,4.5rem)] font-cinzel font-black tracking-wider gold-foil-text leading-none my-1">
+          PRANESH
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-cinzel text-xs sm:text-sm font-bold tracking-[0.25em] text-amber-200 uppercase mb-2">
+          ✦ THE CHOSEN HOMEWORK LEADER ✦
+        </p>
+
+        <!-- Indian Technoblade Tagline Banner -->
+        <div class="my-2 py-1.5 px-3 border-y border-amber-500/60 bg-gradient-to-r from-transparent via-red-950/70 to-transparent">
+          <span class="font-teko text-2xl sm:text-3xl tracking-[0.18em] text-saffron font-bold uppercase block drop-shadow-[0_0_12px_#ff9933]">
+            ⚔️ INDIAN TECHNOBLADE ⚔️
+          </span>
+          <span class="font-teko text-base sm:text-lg tracking-[0.3em] text-amber-300 uppercase block">
+            TECHNOBLADE NEVER DIES
+          </span>
+        </div>
+
+        <!-- Classroom Proclamation Quote -->
+        <div class="my-3 px-3 py-2 rounded-xl bg-red-950/40 border border-red-500/30 text-amber-200 font-teko text-base sm:text-lg tracking-wide leading-tight">
+          &ldquo;Blood for the Blood God... Wait, <span class="text-amber-300 font-bold">HOMEWORK FOR THE HOMEWORK LEADER!</span>&rdquo;
+        </div>
+
+        <!-- Short Description -->
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed font-sans mb-4 px-2">
+          The school group poll has spoken in a landslide! <strong class="text-amber-300">Pranesh</strong> is crowned supreme leader. Zero late submissions, 200 IQ assignment saves, and total victory guaranteed!
+        </p>
+
+        <!-- Primary Touch Action Buttons -->
+        <div class="flex flex-col gap-2 pt-1 w-full">
+          <!-- Main Unleash Strike -->
+          <button id="strikeBtn" onclick="unleashSwordStrike(event)" class="w-full py-3.5 px-4 rounded-xl font-teko text-xl tracking-[0.15em] uppercase font-bold text-black bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 border border-yellow-200 shadow-[0_0_25px_rgba(255,153,51,0.5)] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <span>⚔️</span>
+            <span>UNLEASH ROYAL DECREE</span>
+            <span>⚔️</span>
+          </button>
+
+          <!-- WhatsApp Share Button -->
+          <button onclick="shareToWhatsApp()" class="w-full py-3 px-4 rounded-xl font-teko text-lg tracking-widest uppercase font-semibold text-emerald-200 bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.3)] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <span>📲</span>
+            <span id="shareBtnLabel">SHARE TO CLASS WHATSAPP</span>
+          </button>
+        </div>
+
+        <!-- Notice Banner -->
+        <div id="statusNotice" class="font-teko text-sm text-amber-300 tracking-wider mt-2 min-h-[20px] uppercase truncate"></div>
+
+      </div>
+    </div>
+
+    <!-- MODULE 1: COMPACT 2x2 ENCHANTED GEAR INVENTORY -->
+    <section class="w-full mt-4">
+      <div class="flex items-center justify-between mb-2 px-1">
+        <h3 class="font-cinzel text-xs sm:text-sm font-bold text-amber-300 tracking-wider flex items-center gap-1.5">
+          <span>🗡️</span> ENCHANTED ARSENAL
+        </h3>
+        <span class="text-[10px] font-pixel text-purple-300">TIER: NETHERITE V</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 text-left">
+        <!-- Item 1 -->
+        <div onclick="inspectItem('sword', event)" class="enchanted-glint p-2.5 rounded-xl bg-black/75 border border-purple-500/40 active:scale-95 transition-transform cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-lg">🖋️</span>
+            <span class="text-[9px] font-teko text-purple-300 uppercase px-1 rounded bg-purple-950">MYTHIC</span>
+          </div>
+          <h4 class="font-cinzel text-[11px] text-amber-300 font-bold mt-1 truncate">Pen of Due Dates</h4>
+          <p class="text-[9px] text-purple-200/80 font-mono">Sharpness V • ∞ Due</p>
+        </div>
+
+        <!-- Item 2 -->
+        <div onclick="inspectItem('crown', event)" class="enchanted-glint p-2.5 rounded-xl bg-black/75 border border-amber-500/40 active:scale-95 transition-transform cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-lg">👑</span>
+            <span class="text-[9px] font-teko text-amber-300 uppercase px-1 rounded bg-amber-950">IMPERIAL</span>
+          </div>
+          <h4 class="font-cinzel text-[11px] text-amber-300 font-bold mt-1 truncate">Homework Sovereign</h4>
+          <p class="text-[9px] text-amber-200/80 font-mono">Protection IV • 100% Trust</p>
+        </div>
+
+        <!-- Item 3 -->
+        <div onclick="inspectItem('potato', event)" class="enchanted-glint p-2.5 rounded-xl bg-black/75 border border-yellow-500/40 active:scale-95 transition-transform cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-lg">🥔</span>
+            <span class="text-[9px] font-teko text-yellow-300 uppercase px-1 rounded bg-yellow-950">HYPIXEL</span>
+          </div>
+          <h4 class="font-cinzel text-[11px] text-amber-300 font-bold mt-1 truncate">Enchanted Potato</h4>
+          <p class="text-[9px] text-yellow-200/80 font-mono">Harvest King • 0 Zeros</p>
+        </div>
+
+        <!-- Item 4 -->
+        <div onclick="inspectItem('totem', event)" class="enchanted-glint p-2.5 rounded-xl bg-black/75 border border-emerald-500/40 active:scale-95 transition-transform cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-lg">✨</span>
+            <span class="text-[9px] font-teko text-emerald-300 uppercase px-1 rounded bg-emerald-950">RELIC</span>
+          </div>
+          <h4 class="font-cinzel text-[11px] text-amber-300 font-bold mt-1 truncate">Totem of Submission</h4>
+          <p class="text-[9px] text-emerald-200/80 font-mono">Never Lose Marks • Resurrect</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 2: POTATO CLICKER & PRAISE TAPPER (MOBILE THUMB TARGET) -->
+    <section class="w-full mt-4 p-3.5 rounded-2xl bg-black/75 border border-amber-500/35 backdrop-blur-md">
+      <div class="flex items-center justify-between gap-3">
+        <button onclick="tapPotatoFrenzy(event)" class="potato-tap w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-gradient-to-br from-amber-600 via-yellow-500 to-amber-700 border-2 border-yellow-300 shadow-[0_0_20px_rgba(245,158,11,0.5)] flex items-center justify-center text-3xl sm:text-4xl cursor-pointer">
+          🥔
+        </button>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="font-teko text-base sm:text-lg text-amber-400 uppercase font-bold tracking-wider leading-none">POTATO & AURA TAPPER</span>
+            <span id="rankBadge" class="text-[8px] font-teko px-1.5 py-0.5 rounded bg-purple-900 border border-purple-400 text-purple-200 uppercase">
+              NOVICE
+            </span>
+          </div>
+          
+          <div class="flex items-baseline gap-2 mt-0.5">
+            <span id="potatoScore" class="font-cinzel text-xl sm:text-2xl font-black text-amber-200">5,420</span>
+            <span class="text-[10px] text-slate-400 font-sans">Potatoes</span>
+          </div>
+
+          <div class="flex items-center gap-3 mt-0.5 text-[10px] text-slate-300 font-mono">
+            <span>AURA: <strong id="auraScore" class="text-amber-300">+99,999</strong></span>
+            <span>COMBO: <strong id="comboMultiplier" class="text-yellow-400">1x</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 3: THE ROYAL DECREE (WAX SEAL TAP ACCORDION) -->
+    <section class="w-full mt-4">
+      <div id="decreeCard" class="rounded-2xl bg-gradient-to-b from-[#22160f] to-[#0f0907] border border-amber-500/40 p-4 text-center relative overflow-hidden transition-all duration-300 shadow-lg">
+        
+        <div class="flex items-center justify-between cursor-pointer" onclick="toggleDecreeParchment()">
+          <div class="text-left">
+            <span class="text-[10px] font-teko tracking-widest text-amber-400 uppercase font-bold block">OFFICIAL IMPERIAL PARCHMENT</span>
+            <h3 class="font-cinzel text-sm sm:text-base font-bold text-amber-200">The Coronation Decree</h3>
+          </div>
+          <!-- Wax Seal -->
+          <div id="waxSeal" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-700 border-2 border-amber-300 shadow-[0_0_12px_rgba(220,38,38,0.7)] flex items-center justify-center text-lg font-cinzel font-black text-amber-200 active:scale-90 transition-transform">
+            P
+          </div>
+        </div>
+
+        <div class="decree-content mt-3 pt-3 border-t border-amber-500/20 text-left">
+          <p class="font-cinzel text-xs text-amber-100/90 leading-relaxed italic">
+            &ldquo;Be it known across every classroom desk and student group: By certified poll majority, <strong class="text-amber-300">Pranesh</strong> is designated Supreme Homework Sovereign. He holds dominion over due dates, physics formulas, and 11th-hour assignment defense strategies. Technoblade never dies!&rdquo;
+          </p>
+          <div class="flex items-center justify-between mt-3 text-[10px] font-teko tracking-wider text-amber-400/80 uppercase">
+            <span>SEALED BY: CLASS SYNDICATE</span>
+            <span>RESULT: 100% ACCREDITED</span>
+          </div>
+        </div>
+
+        <button onclick="toggleDecreeParchment()" class="mt-2 text-[10px] font-teko tracking-widest text-amber-400/80 uppercase">
+          <span id="decreeTogglePrompt">✦ TAP WAX SEAL TO UNFOLD DECREE ✦</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- MODULE 4: CLASSROOM LIVE CHAT SIMULATION -->
+    <section class="w-full mt-4 p-3 rounded-2xl bg-black/80 border border-purple-500/35 backdrop-blur-md">
+      <div class="flex items-center justify-between mb-2 border-b border-purple-500/20 pb-1.5">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span class="font-pixel text-xs text-purple-300 tracking-wider">
+            [CLASS_WHATSAPP_LIVE.LOG]
+          </span>
+        </div>
+        <span class="text-[9px] text-slate-400 font-pixel">ACTIVE REVERB</span>
+      </div>
+
+      <!-- Scrolling Feed -->
+      <div id="chatFeed" class="space-y-1.5 h-32 overflow-y-auto pr-1 text-[11px] font-pixel">
+        <div class="mc-chat-row text-slate-300"><span class="text-yellow-400">&lt;Arun_Backbencher&gt;</span> Pranesh save us on physics numericals bro!</div>
+        <div class="mc-chat-row text-slate-300"><span class="text-cyan-400">&lt;Class_Monitor&gt;</span> Poll result is certified! Undisputed winner Pranesh! 👑</div>
+        <div class="mc-chat-row text-slate-300"><span class="text-pink-400">&lt;Sneha_Topper&gt;</span> GG King Pranesh! Homework leader crown well deserved!</div>
+        <div class="mc-chat-row text-slate-300"><span class="text-amber-400">&lt;Server_Host&gt;</span> [ANNOUNCEMENT] PRANESH UNLOCKED NETHERITE SOVEREIGN!</div>
+      </div>
+
+      <!-- Quick Shoutout Input -->
+      <form onsubmit="sendClassChat(event)" class="mt-2.5 flex gap-1.5">
+        <input id="chatInput" type="text" maxlength="50" placeholder="Type cheer (e.g. Pranesh OP!)..." class="flex-1 bg-neutral-900 border border-purple-400/30 rounded-lg px-2.5 py-1.5 text-[11px] font-pixel text-amber-200 placeholder-slate-500 focus:outline-none focus:border-amber-400">
+        <button type="submit" class="px-3 py-1.5 rounded-lg bg-purple-900/70 hover:bg-purple-800 border border-purple-400/50 text-purple-200 text-xs font-teko tracking-wider uppercase font-bold active:scale-95 transition-all">
+          SEND
+        </button>
+      </form>
+    </section>
+
+    <!-- MODULE 5: 3 MOBILE LOYALTY TAPPERS -->
+    <div class="w-full mt-4 grid grid-cols-3 gap-1.5">
+      <button onclick="pledgeLoyalty('swords', event)" class="p-2.5 rounded-xl bg-black/70 border border-amber-500/30 active:scale-95 transition-all text-center">
+        <span class="text-base block">⚔️</span>
+        <span class="font-teko text-xs text-amber-400 uppercase tracking-wider block">Salutes</span>
+        <p class="font-cinzel text-sm font-bold text-amber-200" id="swordCount">628</p>
+      </button>
+
+      <button onclick="pledgeLoyalty('potatoes', event)" class="p-2.5 rounded-xl bg-black/70 border border-amber-500/30 active:scale-95 transition-all text-center">
+        <span class="text-base block">🥔</span>
+        <span class="font-teko text-xs text-amber-400 uppercase tracking-wider block">Potatoes</span>
+        <p class="font-cinzel text-sm font-bold text-amber-200" id="potatoCount">12,500</p>
+      </button>
+
+      <button onclick="pledgeLoyalty('crowns', event)" class="p-2.5 rounded-xl bg-black/70 border border-amber-500/30 active:scale-95 transition-all text-center">
+        <span class="text-base block">👑</span>
+        <span class="font-teko text-xs text-amber-400 uppercase tracking-wider block">Vows</span>
+        <p class="font-cinzel text-sm font-bold text-amber-200" id="crownCount">940</p>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- MOBILE FOOTER -->
+  <footer class="w-full max-w-md py-4 px-2 text-center border-t border-amber-500/20 mt-6 z-20">
+    <p class="font-teko text-sm tracking-[0.2em] text-amber-400/90 uppercase">
+      TECHNOBLADE NEVER DIES • ALL HAIL KING PRANESH
+    </p>
+    <p class="text-[10px] text-slate-500 font-sans mt-0.5">
+      School Group Homework Syndicate • Mobile Coronation
+    </p>
+  </footer>
+
+  <!-- Toast Notification Popup -->
+  <div id="toast" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-red-950/95 border border-amber-400 text-amber-200 text-[11px] font-teko tracking-widest uppercase shadow-[0_0_20px_rgba(255,153,51,0.5)] opacity-0 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+    NOTICE RECORDED
+  </div>
+
+  <!-- JAVASCRIPT & PURE WEB AUDIO SYNTHESIZER ENGINE -->
+  <script>
+    /* ==========================================================
+       1. SYNTHESIZED WEB AUDIO API & HAPTIC ENGINE
+       ========================================================== */
+    let audioCtx = null;
+    let sfxEnabled = true;
+    let bgmEnabled = false;
+    let hapticsEnabled = true;
+    let bgmInterval = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function triggerHaptic(pattern = [20]) {
+      if (!hapticsEnabled) return;
+      if ('vibrate' in navigator) {
+        try { navigator.vibrate(pattern); } catch (e) {}
+      }
+    }
+
+    function toggleHaptics() {
+      hapticsEnabled = !hapticsEnabled;
+      const btn = document.getElementById('hapticBtn');
+      if (hapticsEnabled) {
+        btn.innerHTML = '<span>📳</span> ON';
+        triggerHaptic([30]);
+        showToast('📳 HAPTICS ENABLED');
+      } else {
+        btn.innerHTML = '<span>📳</span> OFF';
+        showToast('📳 HAPTICS DISABLED');
+      }
+    }
+
+    function toggleSFX() {
+      sfxEnabled = !sfxEnabled;
+      const label = document.getElementById('sfxLabel');
+      const icon = document.getElementById('sfxIcon');
+      if (sfxEnabled) {
+        label.innerText = 'SFX';
+        icon.innerText = '🔊';
+        playAnvilCling();
+        showToast('🔊 SFX ENABLED');
+      } else {
+        label.innerText = 'MUTED';
+        icon.innerText = '🔇';
+        showToast('🔇 SFX MUTED');
+      }
+      triggerHaptic([15]);
+    }
+
+    // Synthesized Netherite Blade Strike
+    function playSwordClash() {
+      if (!sfxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        const bufferSize = ctx.sampleRate * 0.15;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(3400, now);
+        filter.frequency.exponentialRampToValueAtTime(320, now + 0.14);
+
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.35, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        noise.start(now);
+
+        const osc = ctx.createOscillator();
+        const oscGain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(1300, now);
+        osc.frequency.exponentialRampToValueAtTime(220, now + 0.28);
+        oscGain.gain.setValueAtTime(0.2, now);
+        oscGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.28);
+
+        osc.connect(oscGain);
+        oscGain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.29);
+      } catch (err) {}
+    }
+
+    // Synthesized Totem Resurrect
+    function playTotemSound() {
+      if (!sfxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        // Sub Bass Boom
+        const sub = ctx.createOscillator();
+        const subGain = ctx.createGain();
+        sub.type = 'sine';
+        sub.frequency.setValueAtTime(125, now);
+        sub.frequency.exponentialRampToValueAtTime(30, now + 0.7);
+        subGain.gain.setValueAtTime(0.65, now);
+        subGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.7);
+        sub.connect(subGain);
+        subGain.connect(ctx.destination);
+        sub.start(now);
+        sub.stop(now + 0.72);
+
+        // Radiant Crystalline Arpeggio
+        const arpeggio = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00];
+        arpeggio.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+
+          gain.gain.setValueAtTime(0.001, now + idx * 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.14, now + idx * 0.05 + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.05 + 0.6);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.05);
+          osc.stop(now + idx * 0.05 + 0.65);
+        });
+      } catch (err) {}
+    }
+
+    // Minecraft Anvil Cling
+    function playAnvilCling() {
+      if (!sfxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1750, now);
+        osc.frequency.exponentialRampToValueAtTime(750, now + 0.25);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.26);
+      } catch (err) {}
+    }
+
+    // Potato Pluck Pop
+    function playPotatoPop() {
+      if (!sfxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        const baseFreq = 420 + Math.random() * 200;
+        osc.frequency.setValueAtTime(baseFreq, now);
+        osc.frequency.exponentialRampToValueAtTime(baseFreq * 1.9, now + 0.08);
+        gain.gain.setValueAtTime(0.22, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.09);
+      } catch (err) {}
+    }
+
+    // Brass Fanfare
+    function playEpicFanfare() {
+      if (!sfxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const chords = [
+          { f: 233.08, t: 0.00, d: 0.16 },
+          { f: 349.23, t: 0.18, d: 0.20 },
+          { f: 466.16, t: 0.40, d: 0.32 },
+          { f: 587.33, t: 0.74, d: 0.22 },
+          { f: 698.46, t: 0.98, d: 0.85 }
+        ];
+
+        chords.forEach(n => {
+          const osc1 = ctx.createOscillator();
+          const osc2 = ctx.createOscillator();
+          const g = ctx.createGain();
+
+          osc1.type = 'sawtooth';
+          osc2.type = 'triangle';
+          osc1.frequency.setValueAtTime(n.f, now + n.t);
+          osc2.frequency.setValueAtTime(n.f * 1.003, now + n.t);
+
+          g.gain.setValueAtTime(0.001, now + n.t);
+          g.gain.exponentialRampToValueAtTime(0.22, now + n.t + 0.03);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + n.t + n.d);
+
+          osc1.connect(g);
+          osc2.connect(g);
+          g.connect(ctx.destination);
+
+          osc1.start(now + n.t);
+          osc2.start(now + n.t);
+          osc1.stop(now + n.t + n.d + 0.04);
+          osc2.stop(now + n.t + n.d + 0.04);
+        });
+      } catch (err) {}
+    }
+
+    // Procedural Looping BGM
+    function toggleBGM() {
+      bgmEnabled = !bgmEnabled;
+      const label = document.getElementById('bgmLabel');
+      const icon = document.getElementById('bgmIcon');
+
+      if (bgmEnabled) {
+        label.innerText = 'ON';
+        icon.innerText = '🎶';
+        startProceduralBGM();
+        showToast('🎶 8-BIT ANTHEM STARTED');
+      } else {
+        label.innerText = 'BGM';
+        icon.innerText = '🎵';
+        stopProceduralBGM();
+        showToast('🎵 BGM PAUSED');
+      }
+      triggerHaptic([12]);
+    }
+
+    function startProceduralBGM() {
+      stopProceduralBGM();
+      const ctx = getAudioContext();
+      const melody = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 440.00, 392.00];
+      let step = 0;
+
+      bgmInterval = setInterval(() => {
+        if (!bgmEnabled) return;
+        try {
+          const now = ctx.currentTime;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(melody[step % melody.length], now);
+
+          gain.gain.setValueAtTime(0.02, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(now);
+          osc.stop(now + 0.18);
+          step++;
+        } catch (e) {}
+      }, 230);
+    }
+
+    function stopProceduralBGM() {
+      if (bgmInterval) {
+        clearInterval(bgmInterval);
+        bgmInterval = null;
+      }
+    }
+
+    /* ==========================================================
+       2. TOUCH GYROSCOPE & 3D TILT FOR SMARTPHONES
+       ========================================================== */
+    const heroCard = document.getElementById('heroCard');
+    const touchArea = document.getElementById('cardTouchArea');
+
+    touchArea.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = heroCard.getBoundingClientRect();
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotX = Math.max(-10, Math.min(10, ((y - centerY) / centerY) * -10));
+        const rotY = Math.max(-10, Math.min(10, ((x - centerX) / centerX) * 10));
+
+        heroCard.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        heroCard.style.setProperty('--touch-x', `${(x / rect.width) * 100}%`);
+        heroCard.style.setProperty('--touch-y', `${(y / rect.height) * 100}%`);
+      }
+    }, { passive: true });
+
+    touchArea.addEventListener('touchend', () => {
+      heroCard.style.transform = `perspective(800px) rotateX(0deg) rotateY(0deg)`;
+    });
+
+    // Device orientation support
+    if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+      window.addEventListener('deviceorientation', (e) => {
+        if (!e.gamma || !e.beta) return;
+        const clampY = Math.max(-8, Math.min(8, e.gamma / 3));
+        const clampX = Math.max(-8, Math.min(8, (e.beta - 45) / 3));
+        heroCard.style.transform = `perspective(800px) rotateX(${-clampX}deg) rotateY(${clampY}deg)`;
+      });
+    }
+
+    /* ==========================================================
+       3. AMBIENT NETHER EMBERS & FIREWORKS CANVASES
+       ========================================================== */
+    const emberCanvas = document.getElementById('emberCanvas');
+    const eCtx = emberCanvas.getContext('2d');
+    let embers = [];
+
+    const fireworkCanvas = document.getElementById('fireworkCanvas');
+    const fCtx = fireworkCanvas.getContext('2d');
+    let fireworks = [];
+
+    function resizeCanvases() {
+      emberCanvas.width = window.innerWidth;
+      emberCanvas.height = window.innerHeight;
+      fireworkCanvas.width = window.innerWidth;
+      fireworkCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvases);
+
+    class Ember {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * emberCanvas.width;
+        this.y = emberCanvas.height + Math.random() * 40;
+        this.size = Math.random() * 2.2 + 0.6;
+        this.vy = -(Math.random() * 1.3 + 0.4);
+        this.vx = (Math.random() - 0.5) * 0.9;
+        this.alpha = Math.random() * 0.7 + 0.2;
+        this.colors = ['#FFD700', '#FF9933', '#C41E3A', '#FFE7A0'];
+        this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+        this.life = 0;
+        this.maxLife = Math.random() * 170 + 80;
+      }
+      update() {
+        this.y += this.vy;
+        this.x += this.vx;
+        this.life++;
+        this.alpha = 1 - (this.life / this.maxLife);
+        if (this.life >= this.maxLife || this.y < -10) this.reset();
+      }
+      draw() {
+        eCtx.save();
+        eCtx.globalAlpha = Math.max(0, this.alpha);
+        eCtx.fillStyle = this.color;
+        eCtx.beginPath();
+        eCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        eCtx.fill();
+        eCtx.restore();
+      }
+    }
+
+    class FireworkParticle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 6 + 2.5;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 12 + 3;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed - 2.5;
+        this.gravity = 0.32;
+        this.drag = 0.94;
+        this.rot = Math.random() * 360;
+        this.rotSpeed = (Math.random() - 0.5) * 18;
+        this.colors = ['#FFD700', '#FF9933', '#C41E3A', '#FFF', '#9333ea', '#10B981'];
+        this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+        this.alpha = 1;
+        this.decay = Math.random() * 0.02 + 0.012;
+      }
+      update() {
+        this.vx *= this.drag;
+        this.vy *= this.drag;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rot += this.rotSpeed;
+        this.alpha -= this.decay;
+      }
+      draw() {
+        fCtx.save();
+        fCtx.globalAlpha = Math.max(0, this.alpha);
+        fCtx.translate(this.x, this.y);
+        fCtx.rotate((this.rot * Math.PI) / 180);
+        fCtx.fillStyle = this.color;
+        fCtx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        fCtx.restore();
+      }
+    }
+
+    function burstConfetti(x, y, count = 65) {
+      for (let i = 0; i < count; i++) {
+        fireworks.push(new FireworkParticle(x, y));
+      }
+    }
+
+    resizeCanvases();
+    for (let i = 0; i < 35; i++) embers.push(new Ember());
+
+    function mainAnimationLoop() {
+      eCtx.clearRect(0, 0, emberCanvas.width, emberCanvas.height);
+      embers.forEach(e => { e.update(); e.draw(); });
+
+      fCtx.clearRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
+      for (let i = fireworks.length - 1; i >= 0; i--) {
+        const p = fireworks[i];
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) fireworks.splice(i, 1);
+      }
+      requestAnimationFrame(mainAnimationLoop);
+    }
+    mainAnimationLoop();
+
+    /* ==========================================================
+       4. INTERACTION: UNLEASH ROYAL DECREE
+       ========================================================== */
+    function unleashSwordStrike(e) {
+      const x = e ? (e.clientX || window.innerWidth / 2) : window.innerWidth / 2;
+      const y = e ? (e.clientY || window.innerHeight / 2) : window.innerHeight / 2;
+
+      triggerHaptic([40, 50, 40]);
+      playSwordClash();
+      setTimeout(playEpicFanfare, 100);
+
+      const slash = document.getElementById('swordSlashOverlay');
+      slash.classList.remove('slash-active');
+      void slash.offsetWidth;
+      slash.classList.add('slash-active');
+
+      document.body.classList.remove('screen-shake');
+      void document.body.offsetWidth;
+      document.body.classList.add('screen-shake');
+      setTimeout(() => document.body.classList.remove('screen-shake'), 400);
+
+      burstConfetti(x, y, 75);
+      setTimeout(() => burstConfetti(window.innerWidth * 0.3, window.innerHeight * 0.4, 40), 120);
+      setTimeout(() => burstConfetti(window.innerWidth * 0.7, window.innerHeight * 0.4, 40), 240);
+
+      document.getElementById('statusNotice').innerText = '⚔️ TECHNOBLADE NEVER DIES! PRANESH RULES THE CLASSROOM! 👑';
+      showToast('⚔️ DECREE UNLEASHED: PRANESH IS HOMEWORK LEADER!');
+    }
+
+    /* ==========================================================
+       5. INTERACTION: TOTEM OF UNDYING ACTIVATION
+       ========================================================== */
+    function triggerTotemCeremony(e) {
+      triggerHaptic([50, 30, 70, 40, 90]);
+      playTotemSound();
+
+      const overlay = document.getElementById('totemOverlay');
+      const graphic = document.getElementById('totemGraphic');
+
+      overlay.classList.add('totem-active');
+      graphic.classList.remove('totem-zoom');
+      void graphic.offsetWidth;
+      graphic.classList.add('totem-zoom');
+
+      burstConfetti(window.innerWidth / 2, window.innerHeight * 0.5, 90);
+
+      setTimeout(() => {
+        overlay.classList.remove('totem-active');
+      }, 1700);
+
+      showToast('⚡ TOTEM OF UNDYING POPPED! IMMORTAL LEADER!');
+    }
+
+    /* ==========================================================
+       6. INTERACTION: POTATO CLICKER & AURA TAPPER
+       ========================================================== */
+    let potatoScoreVal = 5420;
+    let auraScoreVal = 99999;
+    let comboCount = 0;
+    let comboTimeout = null;
+
+    function tapPotatoFrenzy(e) {
+      triggerHaptic([18]);
+      playPotatoPop();
+
+      comboCount++;
+      clearTimeout(comboTimeout);
+      comboTimeout = setTimeout(() => {
+        comboCount = 0;
+        updateComboUI();
+      }, 1300);
+
+      const multiplier = Math.min(10, 1 + Math.floor(comboCount / 5));
+      const gained = 1 * multiplier;
+      potatoScoreVal += gained;
+      auraScoreVal += 100 * multiplier;
+
+      document.getElementById('potatoScore').innerText = potatoScoreVal.toLocaleString();
+      document.getElementById('auraScore').innerText = `+${auraScoreVal.toLocaleString()}`;
+      updateComboUI(multiplier);
+      checkPotatoRanks();
+
+      const clientX = e ? (e.clientX || window.innerWidth / 2) : window.innerWidth / 2;
+      const clientY = e ? (e.clientY || window.innerHeight / 2) : window.innerHeight / 2;
+      spawnFloatingBadge(`+${gained} 🥔 (+${100 * multiplier} Aura)`, clientX, clientY);
+
+      if (comboCount % 10 === 0) {
+        burstConfetti(clientX, clientY, 20);
+        playAnvilCling();
+      }
+    }
+
+    function updateComboUI(multiplier = 1) {
+      const comboEl = document.getElementById('comboMultiplier');
+      comboEl.innerText = `${multiplier}x`;
+      comboEl.style.transform = 'scale(1.25)';
+      setTimeout(() => comboEl.style.transform = 'scale(1)', 130);
+    }
+
+    function checkPotatoRanks() {
+      const badge = document.getElementById('rankBadge');
+      if (potatoScoreVal >= 5800) {
+        badge.innerText = 'POTATO TYRANT 👑';
+        badge.className = 'text-[8px] font-teko px-1.5 py-0.5 rounded bg-amber-900 border border-amber-300 text-amber-200 uppercase';
+      } else if (potatoScoreVal >= 5550) {
+        badge.innerText = 'NETHER WARRIOR ⚔️';
+        badge.className = 'text-[8px] font-teko px-1.5 py-0.5 rounded bg-red-900 border border-red-400 text-red-200 uppercase';
+      }
+    }
+
+    function spawnFloatingBadge(text, x, y) {
+      const badge = document.createElement('div');
+      badge.textContent = text;
+      badge.style.position = 'fixed';
+      badge.style.left = `${Math.max(10, Math.min(window.innerWidth - 120, x - 50))}px`;
+      badge.style.top = `${y - 20}px`;
+      badge.style.fontSize = '14px';
+      badge.style.fontWeight = 'bold';
+      badge.style.color = '#FACC15';
+      badge.style.pointerEvents = 'none';
+      badge.style.zIndex = '9999';
+      badge.style.fontFamily = '"VT323", monospace';
+      badge.style.textShadow = '0 0 8px #000, 0 0 12px #f59e0b';
+      badge.style.transition = 'all 0.65s cubic-bezier(0.16, 1, 0.3, 1)';
+      document.body.appendChild(badge);
+
+      requestAnimationFrame(() => {
+        badge.style.transform = `translateY(-70px) scale(1.2)`;
+        badge.style.opacity = '0';
+      });
+
+      setTimeout(() => badge.remove(), 700);
+    }
+
+    /* ==========================================================
+       7. INTERACTION: ENCHANTED ITEM INSPECTOR
+       ========================================================== */
+    function inspectItem(item, e) {
+      triggerHaptic([15]);
+      playAnvilCling();
+      const cx = e ? (e.clientX || window.innerWidth / 2) : window.innerWidth / 2;
+      const cy = e ? (e.clientY || window.innerHeight / 2) : window.innerHeight / 2;
+      burstConfetti(cx, cy, 14);
+
+      if (item === 'sword') showToast('✒️ PEN OF DUE DATES: 0 ERRORS!');
+      if (item === 'crown') showToast('👑 CROWN OF CLASS SOVEREIGN: 100% TRUST!');
+      if (item === 'potato') showToast('🥔 GOLDEN POTATO: HYPIXEL VICTORY!');
+      if (item === 'totem') showToast('✨ TOTEM: NEVER LOSE ASSIGNMENT MARKS!');
+    }
+
+    /* ==========================================================
+       8. INTERACTION: UNFOLDABLE ROYAL DECREE
+       ========================================================== */
+    let decreeOpen = false;
+    function toggleDecreeParchment() {
+      decreeOpen = !decreeOpen;
+      const card = document.getElementById('decreeCard');
+      const prompt = document.getElementById('decreeTogglePrompt');
+      const seal = document.getElementById('waxSeal');
+
+      triggerHaptic([25]);
+      playAnvilCling();
+
+      if (decreeOpen) {
+        card.classList.add('decree-open');
+        prompt.innerText = '✦ TAP WAX SEAL TO COLLAPSE ✦';
+        seal.style.transform = 'scale(1.15) rotate(12deg)';
+        burstConfetti(window.innerWidth / 2, window.innerHeight * 0.6, 30);
+      } else {
+        card.classList.remove('decree-open');
+        prompt.innerText = '✦ TAP WAX SEAL TO UNFOLD DECREE ✦';
+        seal.style.transform = 'scale(1) rotate(0deg)';
+      }
+    }
+
+    /* ==========================================================
+       9. INTERACTION: CLASSROOM LIVE CHAT
+       ========================================================== */
+    const classCheers = [
+      "<Rohan_Frontrow> Pranesh please confirm chemistry deadline!",
+      "<Karthik_Gamer> All hail the Indian Technoblade!",
+      "<Deepa_CR> 100% voter turnout for King Pranesh!",
+      "<Vikas_Backbencher> No more physics homework tension!",
+      "<Teacher_Desk> Congratulations Pranesh. Keep the class in discipline!"
+    ];
+
+    function sendClassChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const val = input.value.trim();
+      if (!val) return;
+
+      appendChatMessage('<You>', val, 'text-amber-400');
+      input.value = '';
+      triggerHaptic([15]);
+      playAnvilCling();
+
+      setTimeout(() => {
+        const rand = classCheers[Math.floor(Math.random() * classCheers.length)];
+        const match = rand.match(/<([^>]+)>\s*(.+)/);
+        if (match) {
+          appendChatMessage(`<${match[1]}>`, match[2], 'text-cyan-400');
+        }
+      }, 900);
+    }
+
+    function appendChatMessage(author, message, color = 'text-yellow-400') {
+      const feed = document.getElementById('chatFeed');
+      const row = document.createElement('div');
+      row.className = 'mc-chat-row text-slate-300';
+      row.innerHTML = `<span class="${color}">${escapeHtml(author)}</span> ${escapeHtml(message)}`;
+      feed.appendChild(row);
+      feed.scrollTop = feed.scrollHeight;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    /* ==========================================================
+       10. PLEDGE LOYALTY COUNTERS
+       ========================================================== */
+    function pledgeLoyalty(type, e) {
+      triggerHaptic([20]);
+      playSwordClash();
+
+      let targetId = 'swordCount';
+      let emoji = '⚔️';
+      if (type === 'potatoes') { targetId = 'potatoCount'; emoji = '🥔'; }
+      if (type === 'crowns') { targetId = 'crownCount'; emoji = '👑'; }
+
+      const el = document.getElementById(targetId);
+      let count = parseInt(el.innerText.replace(/,/g, ''), 10);
+      count += (type === 'potatoes' ? 50 : 1);
+      el.innerText = count.toLocaleString();
+
+      const cx = e ? (e.clientX || window.innerWidth / 2) : window.innerWidth / 2;
+      const cy = e ? (e.clientY || window.innerHeight / 2) : window.innerHeight / 2;
+      spawnFloatingBadge(emoji, cx, cy);
+      burstConfetti(cx, cy, 14);
+    }
+
+    /* ==========================================================
+       11. WHATSAPP & WEB SHARE API
+       ========================================================== */
+    function shareToWhatsApp() {
+      triggerHaptic([30]);
+      playAnvilCling();
+
+      const msg = 
+`👑⚔️ *ROYAL PROCLAMATION: PRANESH IS OUR HOMEWORK LEADER!* ⚔️👑
+
+The official classroom poll has concluded!
+🏆 *CHOSEN HOMEWORK LEADER:*
+🔥 *PRANESH — THE INDIAN TECHNOBLADE* 🔥
+
+🗡️ *Enchanted Arsenal:*
+• Netherite Pen of Due Dates (Sharpness V)
+• Crown of the Sovereign (100% Student Vote)
+• The Golden Potato (0 Late Submissions)
+
+"Blood for the Blood God... Wait, HOMEWORK FOR THE HOMEWORK LEADER!"
+⚡ *TECHNOBLADE NEVER DIES!* ⚡
+
+Hearty congratulations to Pranesh! Let the golden era begin! 🫡🥔👑`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'Pranesh | The Indian Technoblade — Homework Leader',
+          text: msg
+        }).then(() => {
+          showToast('📲 SHARED TO CLASS GROUP!');
+        }).catch((err) => {
+          copyFallback(msg);
+        });
+      } else {
+        copyFallback(msg);
+      }
+    }
+
+    function copyFallback(text) {
+      const tempArea = document.createElement('textarea');
+      tempArea.value = text;
+      document.body.appendChild(tempArea);
+      tempArea.select();
+
+      try {
+        document.execCommand('copy');
+        const btnLabel = document.getElementById('shareBtnLabel');
+        btnLabel.innerText = 'COPIED TO CLIPBOARD!';
+        showToast('📋 WISH COPIED READY FOR WHATSAPP!');
+        setTimeout(() => { btnLabel.innerText = 'SHARE TO CLASS WHATSAPP'; }, 2500);
+      } catch (err) {
+        showToast('COULD NOT COPY AUTOMATICALLY');
+      }
+      document.body.removeChild(tempArea);
+    }
+
+    /* ==========================================================
+       12. TOAST UTILITY
+       ========================================================== */
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.style.opacity = '1';
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.style.opacity = '0';
+      }, 2300);
+    }
+
+    // Auto load confetti
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        burstConfetti(window.innerWidth / 2, window.innerHeight * 0.35, 50);
+      }, 350);
+    });
+  </script>
+</body>
+</html>
